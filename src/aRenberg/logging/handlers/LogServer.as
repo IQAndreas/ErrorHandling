@@ -12,7 +12,8 @@ package aRenberg.logging.handlers
 	
 	public class LogServer implements ILogHandler
 	{
-		public function LogServer(serverURL:String, filter:uint = Log.ALL)
+		//For some reason, using 'Log.ALL' was throwing 1047 errors, so it has been replaced with the current value
+		public function LogServer(serverURL:String, filter:uint = 0xFFFFFFFF)
 		{
 			_filter = filter;
 			_serverURL = serverURL;

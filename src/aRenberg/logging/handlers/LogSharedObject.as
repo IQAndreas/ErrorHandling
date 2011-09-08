@@ -9,7 +9,8 @@ package aRenberg.logging.handlers
 
 	public class LogSharedObject implements ILogHandler
 	{
-		public function LogSharedObject(localName:String, arrayName:String = "log", saveImmediately:Boolean = true, filter:uint = Log.ALL)
+		//For some reason, using 'Log.ALL' was throwing 1047 errors, so it has been replaced with the current value
+		public function LogSharedObject(localName:String, arrayName:String = "log", saveImmediately:Boolean = true, filter:uint = 0xFFFFFFFF)
 		{
 			this._filter = filter;
 			this._saveImmediately;

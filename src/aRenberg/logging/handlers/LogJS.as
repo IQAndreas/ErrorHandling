@@ -8,7 +8,8 @@ package aRenberg.logging.handlers
 
 	public class LogJS implements ILogHandler
 	{
-		public function LogJS(filter:uint = Log.ALL)
+		//For some reason, using 'Log.ALL' was throwing 1047 errors, so it has been replaced with the current value
+		public function LogJS(filter:uint = 0xFFFFFFFF)
 		{
 			this._filter = filter;
 		}
