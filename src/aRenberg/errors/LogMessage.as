@@ -9,7 +9,7 @@ package aRenberg.errors
 		{
 			super(defaultType, message.length ? message.join(" ") : "Unknown problem", undefined);
 			
-			this.addParam("TIME", new Date().toString());
+			this.addParam('TIME', new Date().toString());
 		}
 		
 		
@@ -27,7 +27,7 @@ package aRenberg.errors
 		
 		//Never case sensitive
 		private var params:Object = {};
-		protected function addParam(name:String, value:String):void
+		protected function addParam(name:String, value:*):void
 		{
 			params[name.toLocaleLowerCase()] = value;
 		}
@@ -51,7 +51,8 @@ package aRenberg.errors
 			var name:String = paramName.toLocaleLowerCase();
 			if (params.hasOwnProperty(name))
 			{
-				return params[name];
+				//Property may not be a String, so always convert it to one
+				return String(params[name]);
 			}
 			else
 			{
